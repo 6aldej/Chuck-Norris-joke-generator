@@ -1,0 +1,72 @@
+.app-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 230px;
+    font-size: 1rem;
+    margin-top: 25px;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 15px;
+    transition: 5s ease-out;
+    -webkit-transition: .5s ease;
+    box-shadow: 5px 5px 2px 2px#272643;
+    background-color: rgb(245, 243, 243);
+}
+
+@media screen and (max-width: 850px) {
+    .app-list-item {
+        min-height: 0px;
+    }
+}
+
+.app-list-item:hover {
+    transform: translate(-15px, 5px);
+    background-color: #fff;
+    box-shadow: 8px 8px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.heart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-list-item .fa-heart {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    color: grey;
+    transition: 0.2s all;
+    opacity: 0.7;
+    cursor: pointer;
+}
+  
+.app-list-item-label {
+    display: block;
+    line-height: 20px;
+    transition: 0.5s all;
+}
+  
+.app-list-item.like .fa-heart {
+    font-size: 25px;
+    opacity: 1;
+    color: red;
+}
+
+.app-list-item.like:hover .fa-heart {
+    animation: 1.2s ease-in-out 0s normal none 1 running trambling-animation;
+}
+@keyframes trambling-animation {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+    }
+}

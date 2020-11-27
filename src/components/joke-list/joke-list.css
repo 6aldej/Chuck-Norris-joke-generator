@@ -1,0 +1,15 @@
+.app-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list-group-item {
+    width: 30%;
+}
+
+@media screen and (max-width: 850px) {
+    .list-group-item {
+        width: 100%;
+    }
+}

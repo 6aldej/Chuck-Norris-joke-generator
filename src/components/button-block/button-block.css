@@ -1,0 +1,116 @@
+.block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block button {
+    height: 5vh;
+    width: 20vw;
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 15px;
+    border: .2px solid #000;
+    box-shadow: 3px 5px 2px 2px#272643;
+    transition: .5s ease-out;
+}
+
+.block button:hover {
+    background-color: #f8f8f8;
+    transform: translate(3px, 5px);
+    box-shadow: 0px 0px .5px 1px #272643;
+}
+
+.block button:active {
+    color: #fff;
+    background-color: #272643c4;
+}
+
+.block button:disabled {
+    cursor: not-allowed;
+    transform: translate(3px, 5px);
+    color: #fff;
+    box-shadow: 0px 0px 1px 1px#272643;
+    background-color: rgba(122, 121, 121, 0.349);
+}
+
+.clear-block button {
+    height: 5vh;
+    width: 20vh;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+    border: .2px solid #000;
+    border-radius: 15px;
+    transition: 5s ease-out;
+    -webkit-transition: 1s ease;
+    background-color: #fff;
+    box-shadow: 0px 5px 1px 1px#272643;
+}
+
+
+.clear-block button:hover {
+    font-size: 15px;
+    transform: translate(0px, 5px);
+    box-shadow: 0px 0px .5px 1px #272643;
+    -webkit-animation: 5s ease-in-out;
+    animation: glowing 3s infinite ease-in-out;
+}
+
+.clear-block h3 {
+	text-shadow: 
+		-0   -2px 3px #FFFFFF,
+		 0   -2px 3px #FFFFFF,
+		-0    2px 3px #FFFFFF,
+		 0    2px 3px #FFFFFF,
+		-2px -0   3px #FFFFFF,
+		 2px -0   3px #FFFFFF,
+		-2px  0   3px #FFFFFF,
+		 2px  0   3px #FFFFFF,
+		-1px -2px 3px #FFFFFF,
+		 1px -2px 3px #FFFFFF,
+		-1px  2px 3px #FFFFFF,
+		 1px  2px 3px #FFFFFF,
+		-2px -1px 3px #FFFFFF,
+		 2px -1px 3px #FFFFFF,
+		-2px  1px 3px #FFFFFF,
+		 2px  1px 3px #FFFFFF,
+		-2px -2px 3px #FFFFFF,
+		 2px -2px 3px #FFFFFF,
+		-2px  2px 3px #FFFFFF,
+		 2px  2px 3px #FFFFFF,
+		-2px -2px 3px #FFFFFF,
+		 2px -2px 3px #FFFFFF,
+		-2px  2px 3px #FFFFFF,
+		 2px  2px 3px #FFFFFF;
+}
+
+@keyframes glowing {
+    0% {color: #000; background-color: #ffffff; }
+    50% {color: #fff; background-color: #e74645; }
+    100% {color: #000; background-color:  #ffffff;}
+}
+
+.img-block {
+    display: flex;
+    justify-content: center;
+}
+
+.img-block img {
+    width: 60vh;
+    border-radius: 1%;
+    border-bottom: 2px solid #000;
+    animation: opaciti-anim 1s 1 ease-in-out;
+}
+
+@keyframes opaciti-anim {
+   0% {opacity: 0};
+   50% {opacity: 0.5};
+   100% { opacity: 1};
+}
+
+@media screen and (max-width: 650px) {
+    .img-block img {
+        width: 40vh;
+    }
+}
