@@ -26,7 +26,7 @@
 ## Установка приложения 🚀
 
     git clone https://github.com/6aldej/ChuckNorrisJokeGenerator
-    cd React-Posts
+    cd ChuckNorrisJokeGenerator
     npm install
     npm start
 
