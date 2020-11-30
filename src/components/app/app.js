@@ -49,7 +49,6 @@ export default class App extends Component {
                 loader: true, 
                 welcomflag: false,
             });
-            console.log('WELCOMFLAG:  ',this.state.welcomflag, 'LOADER:  ', this.state.loader)
             let chuckJokes = await fetch(`https://api.chucknorris.io/jokes/random`);
             let data = await chuckJokes.json();
             let id = new Date().getTime();
