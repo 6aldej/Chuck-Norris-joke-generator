@@ -1,7 +1,7 @@
 # Chuck Norris Joke Generator
   🕹Данное приложение показывает шутки про Чака Норриса.  
   
-  🌍Деплой готового приложения на **Heroku**: <https://chuck-norris-joke-generator.herokuapp.com/>.  
+  🌍Деплой приложения на **Heroku**: <https://chuck-norris-joke-generator.herokuapp.com/>.  
   
   📚Приложение написано на **React JS**.
   
