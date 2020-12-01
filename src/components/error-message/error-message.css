@@ -1,0 +1,14 @@
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 25px;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 15px;
+    transition: 5s ease-out;
+    -webkit-transition: .5s ease;
+    box-shadow: 5px 5px 2px 2px#272643;
+    background-color: rgb(245, 243, 243);
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import AppHeader from '../app-header/';
 import ButtonBlock from '../button-block';
+import ErrorMessage from '../error-message';
 import JokeStatusFilter from '../joke-status-filter';
 import VisibleContent from '../visible-content';
 
@@ -19,10 +20,9 @@ export default class App extends Component {
                 filter: 'home',
                 flag: false,
                 loader: true,
-                welcomflag: true
+                welcomflag: true,
+                error: false
             };
-
-    ale = 0;
 
     onToggleLikedObj = this.onToggleLikedObj.bind(this);
     onToggleLikedArr = this.onToggleLikedArr.bind(this);
@@ -43,13 +43,20 @@ export default class App extends Component {
         })
     }
 
+    onError = (err) => {
+        this.setState({
+            loader: false,
+            error: true
+        })
+    }
+
     getJoke = async () => {
         try{
             this.setState({
-                loader: true, 
+                loader: true,
+                error: false,
                 welcomflag: false,
             });
-            console.log('WELCOMFLAG:  ',this.state.welcomflag, 'LOADER:  ', this.state.loader)
             let chuckJokes = await fetch(`https://api.chucknorris.io/jokes/random`);
             let data = await chuckJokes.json();
             let id = new Date().getTime();
@@ -58,8 +65,9 @@ export default class App extends Component {
                 loader: false
             });
         }
-        catch(error) {
-            console.warn(`We have an error here: ${error}`);
+        catch(err) {
+            console.warn(`We have an error here: ${err}`);
+            this.onError(err);
         }
         this.localJokeStorage();
     }
@@ -71,9 +79,9 @@ export default class App extends Component {
         })
 
         if (this.state.flag) {
-            this.ale = setInterval(this.getJoke, 3000)
+            this.timerId = setInterval(this.getJoke, 3000)
         } else {
-            clearInterval(this.ale)
+            clearInterval(this.timerId)
         }
     }
 
@@ -159,8 +167,19 @@ export default class App extends Component {
     }
 
     render () {
-        const {filter, flag, loader, welcomflag} = this.state;
+        const {filter, flag, loader, welcomflag, error} = this.state;
         const visibleJokes = this.filterPost(filter);
+        const content = error 
+        ? <ErrorMessage/> 
+        : <VisibleContent
+            joke={visibleJokes} 
+            filter={filter}
+            loader={loader}
+            welcomflag={welcomflag}
+            onToggleLikedObj={this.onToggleLikedObj}
+            onToggleLikedArr={this.onToggleLikedArr}
+        />
+
         return (
             <div className='app'>
                 <AppHeader/>
@@ -175,14 +194,7 @@ export default class App extends Component {
                     flag={flag}
                     filter={filter}
                 />
-                <VisibleContent
-                    joke={visibleJokes} 
-                    filter={filter}
-                    loader={loader}
-                    welcomflag={welcomflag}
-                    onToggleLikedObj={this.onToggleLikedObj}
-                    onToggleLikedArr={this.onToggleLikedArr}
-                />
+                {content}
             </div>
         )
     }
