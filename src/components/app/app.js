@@ -79,7 +79,7 @@ export default class App extends Component {
         })
 
         if (this.state.flag) {
-            this.timerId = setInterval(this.getJoke, 3000)
+            this.timerId = setInterval(this.getJoke, 10000)
         } else {
             clearInterval(this.timerId)
         }
